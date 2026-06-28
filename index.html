@@ -1042,6 +1042,331 @@
             color: var(--primary);
         }
 
+        /* ==========================================
+           SEÇÃO DE PODCAST
+           ========================================== */
+        .podcast-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+        .podcast-player-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow-neon);
+            position: relative;
+            overflow: hidden;
+        }
+        .podcast-cover-wrapper {
+            width: 200px;
+            height: 200px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .podcast-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-normal);
+        }
+        .podcast-player-card:hover .podcast-cover-img {
+            transform: scale(1.05);
+        }
+        .podcast-soundwave {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 25px;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .podcast-player-card.playing .podcast-soundwave {
+            opacity: 1;
+        }
+        .podcast-soundwave span {
+            width: 3px;
+            height: 5px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        .podcast-player-card.playing .podcast-soundwave span {
+            animation: bounceSoundwave 1s infinite alternate;
+        }
+        .podcast-soundwave span:nth-child(2) { animation-delay: 0.15s; }
+        .podcast-soundwave span:nth-child(3) { animation-delay: 0.3s; }
+        .podcast-soundwave span:nth-child(4) { animation-delay: 0.45s; }
+        .podcast-soundwave span:nth-child(5) { animation-delay: 0.2s; }
+        @keyframes bounceSoundwave {
+            from { height: 5px; }
+            to { height: 25px; }
+        }
+
+        .podcast-player-details {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .podcast-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .episode-tag {
+            font-size: 0.75rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            background: rgba(255, 107, 0, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 0, 0.2);
+        }
+        .duration-tag {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .podcast-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+            line-height: 1.3;
+            margin-top: 0;
+        }
+        .podcast-artist {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            margin-top: 0;
+        }
+
+        /* Progress Bar */
+        .player-progress-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .time-elapsed, .time-total {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            width: 40px;
+        }
+        .time-elapsed { text-align: right; }
+        .time-total { text-align: left; }
+        
+        .player-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            position: relative;
+            cursor: pointer;
+            transition: height 0.2s ease;
+        }
+        .player-progress-bar:hover {
+            height: 8px;
+        }
+        .player-progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        .player-progress-handle {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            background: var(--text);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .player-progress-bar:hover .player-progress-handle {
+            opacity: 1;
+        }
+
+        /* Controls */
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.75rem;
+        }
+        .control-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .control-btn:hover {
+            color: var(--primary);
+        }
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+            transition: var(--transition-normal);
+        }
+        .play-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.5);
+        }
+        .play-btn i {
+            padding-left: 2px;
+        }
+        .podcast-player-card.playing .play-btn i {
+            padding-left: 0;
+        }
+
+        /* Volume */
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 130px;
+        }
+        .volume-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .volume-btn:hover {
+            color: var(--text);
+        }
+        .volume-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+        }
+        .volume-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Notes Card */
+        .podcast-notes-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .podcast-notes-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0;
+        }
+        .podcast-notes-card h3 i {
+            color: var(--primary);
+        }
+        .notes-intro {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            margin-top: 0;
+        }
+        .notes-topics {
+            list-style-type: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .notes-topics li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+        }
+        .topic-icon {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-top: 2px;
+        }
+        .topic-info h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+            margin-top: 0;
+        }
+        .topic-info p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .podcast-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .podcast-player-card {
+                padding: 2rem;
+            }
+        }
+
         /* Checklists Pré e Pós-Impressão */
         .checklists-row {
             display: grid;
@@ -2254,6 +2579,7 @@
                     <li><a href="#filamentos">Filamentos</a></li>
                     <li><a href="#armazenamento">Armazenamento</a></li>
                     <li><a href="#ferramentas">Fatiadores & Tools</a></li>
+                    <li><a href="#podcast">Podcast</a></li>
                     <li><a href="#stl">Downloads STL</a></li>
                 </ul>
             </nav>
@@ -3807,7 +4133,117 @@
         </section>
 
         <!-- ==========================================
-           SEÇÃO 7: SITES PARA DOWNLOAD STL
+           SEÇÃO 7: PODCAST - STUDIO T 3D
+           ========================================== -->
+        <section class="section bg-alt" id="podcast">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Audioguia</span>
+                    <h2 class="section-title">Studio T 3D Podcast</h2>
+                    <p class="section-subtitle">Coloque os fones de ouvido e aprenda de forma descontraída com o nosso episódio especial contendo dicas cruciais sobre impressão 3D.</p>
+                </div>
+
+                <div class="podcast-container">
+                    <!-- Player Card -->
+                    <div class="podcast-player-card">
+                        <div class="podcast-cover-wrapper">
+                            <img src="images/podcast_cover.png" alt="Capa do Podcast Studio T 3D" class="podcast-cover-img">
+                            <div class="podcast-soundwave">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="podcast-player-details">
+                            <div class="podcast-meta">
+                                <span class="episode-tag">Episódio #01</span>
+                                <span class="duration-tag"><i class="fa-solid fa-clock"></i> Carregando...</span>
+                            </div>
+                            <h3 class="podcast-title">Como fazer impressões 3D perfeitas na prática</h3>
+                            <p class="podcast-artist">Studio T 3D - Guia Prático</p>
+
+                            <!-- Elemento de áudio oculto -->
+                            <audio id="podcastAudio" src="midias/Como_fazer_impressoes_3D_perfeitas_na_pratica.m4a" preload="metadata"></audio>
+
+                            <!-- Controles de Progresso -->
+                            <div class="player-progress-container">
+                                <span class="time-elapsed" id="timeElapsed">00:00</span>
+                                <div class="player-progress-bar" id="playerProgressBar">
+                                    <div class="player-progress-fill" id="playerProgressFill"></div>
+                                    <div class="player-progress-handle" id="playerProgressHandle"></div>
+                                </div>
+                                <span class="time-total" id="timeTotal">00:00</span>
+                            </div>
+
+                            <!-- Botões de Controle -->
+                            <div class="player-controls">
+                                <button class="control-btn" id="btnBackward" aria-label="Voltar 10 segundos">
+                                    <i class="fa-solid fa-backward-step"></i>
+                                </button>
+                                <button class="play-btn" id="btnPlayPause" aria-label="Reproduzir Podcast">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                                <button class="control-btn" id="btnForward" aria-label="Avançar 10 segundos">
+                                    <i class="fa-solid fa-forward-step"></i>
+                                </button>
+                            </div>
+
+                            <!-- Controle de Volume -->
+                            <div class="volume-container">
+                                <button class="volume-btn" id="btnMute" aria-label="Mutar volume">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                                <div class="volume-bar" id="volumeBar">
+                                    <div class="volume-fill" id="volumeFill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notas do Episódio -->
+                    <div class="podcast-notes-card">
+                        <h3><i class="fa-solid fa-list-check"></i> Conteúdo Discutido no Episódio</h3>
+                        <p class="notes-intro">Neste episódio especial de estreia, Thiago aborda detalhadamente as principais dores de quem está começando e os caminhos práticos para alcançar a impressão perfeita. Confira os tópicos discutidos:</p>
+                        
+                        <ul class="notes-topics">
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>A primeira camada perfeita (Z-Offset)</h4>
+                                    <p>O segredo da adesão mecânica correta: como identificar e regular a altura ideal da mesa sem achatar de menos ou raspar no vidro.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>Controle de umidade nos filamentos</h4>
+                                    <p>Como os estalos e fiapos revelam a contaminação por umidade do ar e os métodos seguros para desidratar o carretel (forno vs secador).</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>Ajustando temperaturas e velocidade</h4>
+                                    <p>A relação entre vazão térmica e aceleração mecânica: saiba quando imprimir a 300 mm/s e quando recuar para melhor detalhamento estético.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>Procedimentos pré e pós-impressão</h4>
+                                    <p>O papel da limpeza com álcool isopropílico (IPA) e a importância de deixar a mesa esfriar completamente antes de tentar remover a peça finalizada.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+           SEÇÃO 8: SITES PARA DOWNLOAD STL
            ========================================== -->
         <section class="section" id="stl">
             <div class="container">
@@ -4434,6 +4870,129 @@
                 closeModal();
             }
         });
+
+        // ==========================================
+        // PODCAST PLAYER CUSTOMIZADO
+        // ==========================================
+        const audio = document.getElementById('podcastAudio');
+        const playPauseBtn = document.getElementById('btnPlayPause');
+        const backwardBtn = document.getElementById('btnBackward');
+        const forwardBtn = document.getElementById('btnForward');
+        const muteBtn = document.getElementById('btnMute');
+        const progressBar = document.getElementById('playerProgressBar');
+        const progressFill = document.getElementById('playerProgressFill');
+        const progressHandle = document.getElementById('playerProgressHandle');
+        const volumeBar = document.getElementById('volumeBar');
+        const volumeFill = document.getElementById('volumeFill');
+        const timeElapsed = document.getElementById('timeElapsed');
+        const timeTotal = document.getElementById('timeTotal');
+        const playerCard = document.querySelector('.podcast-player-card');
+        const durationTag = document.querySelector('.duration-tag');
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '00:00';
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        audio.addEventListener('loadedmetadata', () => {
+            timeTotal.innerText = formatTime(audio.duration);
+            if (durationTag) {
+                durationTag.innerHTML = `<i class="fa-solid fa-clock"></i> ${formatTime(audio.duration)}`;
+            }
+        });
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                playerCard.classList.add('playing');
+            } else {
+                audio.pause();
+                playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                playerCard.classList.remove('playing');
+            }
+        }
+
+        playPauseBtn.addEventListener('click', togglePlay);
+
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progressFill.style.width = percent + '%';
+            progressHandle.style.left = percent + '%';
+            timeElapsed.innerText = formatTime(audio.currentTime);
+        });
+
+        function setProgress(e) {
+            const width = progressBar.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        }
+
+        progressBar.addEventListener('click', setProgress);
+
+        backwardBtn.addEventListener('click', () => {
+            audio.currentTime = Math.max(0, audio.currentTime - 10);
+        });
+
+        forwardBtn.addEventListener('click', () => {
+            audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+        });
+
+        let lastVolume = 0.8;
+        audio.volume = lastVolume;
+
+        function setVolume(e) {
+            const width = volumeBar.clientWidth;
+            const clickX = e.offsetX;
+            let val = clickX / width;
+            val = Math.max(0, Math.min(1, val));
+            audio.volume = val;
+            volumeFill.style.width = (val * 100) + '%';
+            lastVolume = val;
+            
+            if (val === 0) {
+                muteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+            } else if (val < 0.5) {
+                muteBtn.innerHTML = '<i class="fa-solid fa-volume-low"></i>';
+            } else {
+                muteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+            }
+        }
+
+        volumeBar.addEventListener('click', setVolume);
+
+        muteBtn.addEventListener('click', () => {
+            if (audio.volume > 0) {
+                lastVolume = audio.volume;
+                audio.volume = 0;
+                volumeFill.style.width = '0%';
+                muteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+            } else {
+                audio.volume = lastVolume;
+                volumeFill.style.width = (lastVolume * 100) + '%';
+                if (lastVolume < 0.5) {
+                    muteBtn.innerHTML = '<i class="fa-solid fa-volume-low"></i>';
+                } else {
+                    muteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                }
+            }
+        });
+
+        audio.addEventListener('ended', () => {
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            playerCard.classList.remove('playing');
+            audio.currentTime = 0;
+        });
+
+        if (audio.readyState >= 1) {
+            timeTotal.innerText = formatTime(audio.duration);
+            if (durationTag) {
+                durationTag.innerHTML = `<i class="fa-solid fa-clock"></i> ${formatTime(audio.duration)}`;
+            }
+        }
     </script>
 </body>
 </html>
