@@ -827,6 +827,221 @@
             color: var(--accent);
         }
 
+        /* Recursos de Mídia (Infográfico & Vídeo) */
+        .media-resources-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        .media-resource-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .resource-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+        .resource-card-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text);
+            margin: 0;
+        }
+        .resource-card-header h3 i {
+            color: var(--primary);
+        }
+        .resource-badge {
+            font-size: 0.75rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 206, 201, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(0, 206, 201, 0.2);
+            border-radius: 20px;
+        }
+        .resource-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .infographic-container {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            aspect-ratio: 16 / 9;
+            background: var(--bg-alt);
+        }
+        .infographic-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-normal);
+            display: block;
+        }
+        .infographic-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 17, 26, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            opacity: 0;
+            color: white;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-normal);
+        }
+        .infographic-overlay i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        .infographic-container:hover .infographic-overlay {
+            opacity: 1;
+        }
+        .infographic-container:hover .infographic-img {
+            transform: scale(1.05);
+        }
+
+        /* Video Placeholder */
+        .video-placeholder-container {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #10121B, #161A26);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-placeholder-glow {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, transparent 70%);
+            animation: pulseGlowCircle 4s infinite ease-in-out;
+        }
+        @keyframes pulseGlowCircle {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+        .video-placeholder-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .play-icon-pulse {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            padding-left: 4px;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+            animation: playPulse 2s infinite ease-in-out;
+        }
+        @keyframes playPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 35px rgba(255, 107, 0, 0.7); transform: scale(1.08); }
+        }
+        .video-placeholder-content h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 0;
+        }
+        .video-placeholder-content p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            max-width: 280px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        @media (max-width: 992px) {
+            .media-resources-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Modal Lightbox de Imagem */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 12, 18, 0.95);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--border);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .image-modal.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: var(--text);
+            font-size: 40px;
+            font-weight: bold;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
         /* Checklists Pré e Pós-Impressão */
         .checklists-row {
             display: grid;
@@ -2634,6 +2849,44 @@
                     </div>
                 </div>
 
+                <!-- Painel de Recursos de Mídia (Infográfico & Vídeo) -->
+                <div class="media-resources-row">
+                    <!-- Coluna do Infográfico -->
+                    <div class="media-resource-card">
+                        <div class="resource-card-header">
+                            <h3><i class="fa-solid fa-circle-nodes"></i> Infográfico do Ciclo</h3>
+                            <span class="resource-badge">Resumo Visual</span>
+                        </div>
+                        <p class="resource-desc">Clique no infográfico abaixo para ampliar e estudar o ciclo completo de impressão 3D perfeita em alta resolução.</p>
+                        <div class="infographic-container" id="zoomableTrigger">
+                            <img src="images/Ciclo_da_Impressao_3D_Perfeita.png" alt="Ciclo da Impressão 3D Perfeita Infográfico explicativo com o passo a passo resumido" class="infographic-img">
+                            <div class="infographic-overlay">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                Clique para ampliar
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna do Vídeo Explicativo -->
+                    <div class="media-resource-card">
+                        <div class="resource-card-header">
+                            <h3><i class="fa-solid fa-video"></i> Vídeo Explicativo</h3>
+                            <span class="resource-badge">Em Produção</span>
+                        </div>
+                        <p class="resource-desc">Aprenda de forma interativa e visual com o ciclo de impressão 3D gravado pelo Studio T 3D.</p>
+                        <div class="video-placeholder-container">
+                            <div class="video-placeholder-glow"></div>
+                            <div class="video-placeholder-content">
+                                <div class="play-icon-pulse">
+                                    <i class="fa-solid fa-play"></i>
+                                </div>
+                                <h4>Studio T 3D - O Vídeo Explicativo</h4>
+                                <p>Estamos finalizando a edição deste super vídeo. Em breve ele estará disponível aqui para te guiar passo a passo!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="checklists-row">
                     <!-- Checklist Pré-Impressão -->
                     <div class="checklist-box">
@@ -4137,6 +4390,50 @@
             const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
             setTheme(currentTheme === 'light' ? 'dark' : 'light');
         });
+
+        // ==========================================
+        // MODAL DE ZOOM DO INFOGRÁFICO
+        // ==========================================
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+        const zoomableTrigger = document.getElementById('zoomableTrigger');
+
+        if (zoomableTrigger) {
+            zoomableTrigger.addEventListener('click', () => {
+                const img = zoomableTrigger.querySelector('img');
+                if (img) {
+                    modalImage.src = img.getAttribute('src');
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    imageModal.setAttribute('aria-hidden', 'false');
+                }
+            });
+        }
+
+        function closeModal() {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            imageModal.setAttribute('aria-hidden', 'true');
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeModal();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
     </script>
+
+    <!-- Modal de Zoom do Infográfico -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <button class="modal-close" id="modalClose" aria-label="Fechar Imagem">&times;</button>
+        <img class="modal-content" id="modalImage" alt="Ciclo da Impressão 3D Perfeita Infográfico">
+    </div>
 </body>
 </html>
