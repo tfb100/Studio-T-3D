@@ -131,7 +131,7 @@
         }
         @media (min-width: 993px) {
             .theme-toggle {
-                margin-left: 1.5rem;
+                margin-left: 0.75rem;
             }
         }
 
@@ -291,15 +291,16 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.1rem;
         }
 
         .nav-links a {
-            font-size: 0.95rem;
+            font-size: 0.875rem;
             font-weight: 500;
             color: var(--text-light);
             position: relative;
             padding: 0.5rem 0;
+            white-space: nowrap;
         }
         .nav-links a::after {
             content: '';
@@ -4879,7 +4880,7 @@
         const backwardBtn = document.getElementById('btnBackward');
         const forwardBtn = document.getElementById('btnForward');
         const muteBtn = document.getElementById('btnMute');
-        const progressBar = document.getElementById('playerProgressBar');
+        const podcastProgressBar = document.getElementById('playerProgressBar');
         const progressFill = document.getElementById('playerProgressFill');
         const progressHandle = document.getElementById('playerProgressHandle');
         const volumeBar = document.getElementById('volumeBar');
@@ -4925,13 +4926,13 @@
         });
 
         function setProgress(e) {
-            const width = progressBar.clientWidth;
+            const width = podcastProgressBar.clientWidth;
             const clickX = e.offsetX;
             const duration = audio.duration;
             audio.currentTime = (clickX / width) * duration;
         }
 
-        progressBar.addEventListener('click', setProgress);
+        podcastProgressBar.addEventListener('click', setProgress);
 
         backwardBtn.addEventListener('click', () => {
             audio.currentTime = Math.max(0, audio.currentTime - 10);
