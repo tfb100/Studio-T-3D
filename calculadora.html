@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Studio T 3D: Teu guia básico completo para começar a imprimir em 3D de forma fácil. Aprenda sobre calibragem, checklists de verificação, fatiadores e filamentos.">
+    <title>Studio T 3D - Teu guia básico para impressões 3D fáceis</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Skip Link Acessibilidade -->
+    <a href="#glossario" class="skip-link">Ir para o conteúdo principal</a>
+
+    <!-- ==========================================
+       NAVBAR FIXA
+       ========================================== -->
+    <div class="navbar-wrapper" id="navbarWrapper">
+        <header class="container navbar">
+            <a href="#" class="logo" aria-label="Logo Studio T 3D">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Studio T 3D</span>
+            </a>
+            
+            <nav id="navMenu">
+                <ul class="nav-links">
+                <li><a href="index.html#" class="active">Início</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Aprender <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="index.html#glossario">Glossário</a>
+                        <a href="index.html#procedimentos">Procedimentos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Equipamentos <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="index.html#impressoras">Impressoras</a>
+                        <a href="index.html#materiais">Materiais</a>
+                        <a href="index.html#softwares">Softwares</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Ferramentas <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="calculadora.html">Calculadora de Custos</a>
+                    </div>
+                </li>
+            </ul>
+            </nav>
+            
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar Tema Claro/Escuro">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <section class="section" id="calculadora">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Ferramenta</span>
+                    <h2 class="section-title">Calculadora Inteligente de Custos</h2>
+                    <p class="section-subtitle">Use os perfis pré-configurados para estimar rapidamente o custo da sua impressão. Apenas digite o peso e o tempo!</p>
+                </div>
+
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+                    <div class="calculator-panel" style="background: var(--card); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+                        <h3 style="font-family: var(--font-display); color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fa-solid fa-calculator"></i> Dados da Impressão</h3>
+                        
+                        <!-- PERFIS RÁPIDOS -->
+                        <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 2rem; border: 1px solid var(--border);">
+                            <h4 style="color: var(--text); margin-top: 0; margin-bottom: 1rem; font-family: var(--font-display); font-size: 1.1rem;"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent);"></i> Preenchimento Rápido</h4>
+                            
+                            <div class="form-group" style="margin-bottom: 1.25rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Filamento <span style="color: var(--danger);">*</span></label>
+                                <select id="preset-filamento" style="width: 100%; padding: 0.8rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body); appearance: auto;">
+                                    <option value="">Selecione o Material...</option>
+                                    <option value="pla_padrao" data-preco="120" data-peso="1000">PLA Padrão (R$ 120 / 1kg)</option>
+                                    <option value="petg" data-preco="110" data-peso="1000">PETG (R$ 110 / 1kg)</option>
+                                    <option value="abs" data-preco="95" data-peso="1000">ABS (R$ 95 / 1kg)</option>
+                                    <option value="tpu" data-preco="150" data-peso="1000">TPU Flex (R$ 150 / 1kg)</option>
+                                    <option value="resina" data-preco="180" data-peso="1000">Resina Standard (R$ 180 / 1kg)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 1.25rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Impressora <span style="color: var(--danger);">*</span></label>
+                                <select id="preset-impressora" style="width: 100%; padding: 0.8rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body); appearance: auto;">
+                                    <option value="">Selecione a Impressora...</option>
+                                    <option value="basica" data-consumo="250" data-desgaste="1.00">Básica (ex: Ender 3) - Baixo Consumo</option>
+                                    <option value="corexy" data-consumo="350" data-desgaste="2.50">Rápida (ex: Bambu Lab) - Alto Consumo</option>
+                                    <option value="resina" data-consumo="100" data-desgaste="1.50">Resina - Consumo Mínimo</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Acabamento e Complexidade <span style="color: var(--danger);">*</span></label>
+                                <select id="preset-complexidade" style="width: 100%; padding: 0.8rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body); appearance: auto;">
+                                    <option value="">Selecione o Nível de Acabamento...</option>
+                                    <option value="direto" data-extras="0" data-margem="100" data-tempo="0">Direto da Mesa (Sem Acabamento extra)</option>
+                                    <option value="suportes" data-extras="5" data-margem="150" data-tempo="0.25">Retirada de Suportes Simples</option>
+                                    <option value="pintura" data-extras="20" data-margem="250" data-tempo="1.5">Lixamento e Pintura (Alta Complexidade)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- DADOS ESPECÍFICOS DA PEÇA (SEMPRE VISÍVEIS) -->
+                        <h4 style="color: var(--text); margin: 2rem 0 1.25rem 0; font-family: var(--font-display); font-size: 1.2rem;">Dados da Peça</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group" style="margin-bottom: 1.25rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Peso da Peça (g) <span style="color: var(--danger);">*</span></label>
+                                <input type="text" id="calc-peso-peca" class="mask-number" style="width: 100%; padding: 0.8rem; background: var(--bg-alt); border: 1px solid var(--primary); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body); box-shadow: 0 0 10px rgba(255,107,0,0.1);" placeholder="Ex: 150">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 1.25rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Tempo da Impressão (h) <span style="color: var(--danger);">*</span></label>
+                                <input type="text" id="calc-tempo-h" class="mask-number" style="width: 100%; padding: 0.8rem; background: var(--bg-alt); border: 1px solid var(--primary); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body); box-shadow: 0 0 10px rgba(255,107,0,0.1);" placeholder="Ex: 5.5">
+                            </div>
+                        </div>
+
+                        <!-- ACCORDION OPÇÕES AVANÇADAS -->
+                        <div class="accordion" style="margin-top: 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-alt);">
+                            <button class="accordion-header" onclick="toggleAccordion(this)" style="width: 100%; padding: 1rem 1.5rem; background: transparent; border: none; color: var(--text-light); font-family: var(--font-display); font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                                <span style="display: flex; align-items: center; gap: 0.5rem;"><i class="fa-solid fa-sliders"></i> Variáveis Avançadas (Autopreenchidas)</span>
+                                <i class="fa-solid fa-chevron-down chevron" style="transition: transform 0.3s;"></i>
+                            </button>
+                            <div class="accordion-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0;">
+                                <div style="padding: 0 1.5rem 1.5rem 1.5rem; border-top: 1px solid var(--border); margin-top: 0.5rem; padding-top: 1.5rem;">
+                                    <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0; margin-bottom: 1.5rem;">Estes campos são preenchidos automaticamente com base nas suas seleções acima, mas podem ser ajustados manualmente.</p>
+                                    
+                                    <!-- Filamento Extra -->
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Preço do Carretel</label>
+                                        <div style="position: relative;">
+                                            <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 0.9rem;">R$</span>
+                                            <input type="text" id="calc-preco-carretel" class="mask-money" style="width: 100%; padding: 0.8rem 0.8rem 0.8rem 2.5rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="0,00">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Peso do Carretel (g)</label>
+                                        <input type="text" id="calc-peso-carretel" class="mask-number" style="width: 100%; padding: 0.8rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="1000" value="1000">
+                                    </div>
+                                    
+                                    <!-- Máquina Extra -->
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Consumo da Impressora (W)</label>
+                                        <input type="text" id="calc-consumo-w" class="mask-number" style="width: 100%; padding: 0.8rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="250">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Tarifa de Energia (R$/kWh)</label>
+                                        <div style="position: relative;">
+                                            <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 0.9rem;">R$</span>
+                                            <input type="text" id="calc-tarifa" class="mask-money" style="width: 100%; padding: 0.8rem 0.8rem 0.8rem 2.5rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="0,90" value="0,90">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Desgaste da Máquina (R$/h)</label>
+                                        <div style="position: relative;">
+                                            <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 0.9rem;">R$</span>
+                                            <input type="text" id="calc-desgaste" class="mask-money" style="width: 100%; padding: 0.8rem 0.8rem 0.8rem 2.5rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="0,00">
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Acabamento Extra -->
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Custo Fixo de Extras (R$)</label>
+                                        <div style="position: relative;">
+                                            <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 0.9rem;">R$</span>
+                                            <input type="text" id="calc-extras" class="mask-money" style="width: 100%; padding: 0.8rem 0.8rem 0.8rem 2.5rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="0,00">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Hora de Trabalho Humano (R$/h)</label>
+                                        <div style="position: relative;">
+                                            <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 0.9rem;">R$</span>
+                                            <input type="text" id="calc-hora-homem" class="mask-money" style="width: 100%; padding: 0.8rem 0.8rem 0.8rem 2.5rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="25,00" value="25,00">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Tempo de Trabalho (h)</label>
+                                        <input type="text" id="calc-tempo-trabalho" class="mask-number" style="width: 100%; padding: 0.8rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="0">
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem;">Margem de Lucro (%)</label>
+                                        <input type="text" id="calc-margem" class="mask-number" style="width: 100%; padding: 0.8rem; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); font-family: var(--font-body);" placeholder="150" value="150">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="position: relative;">
+                        <div class="calculator-results" style="background: var(--card); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--accent); position: sticky; top: 120px;">
+                            <h3 style="font-family: var(--font-display); color: var(--accent); margin-top: 0; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fa-solid fa-chart-pie"></i> Resultados</h3>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);">
+                                <span style="color: var(--text-light); font-size: 0.95rem;">Custo do Filamento:</span>
+                                <span id="res-filamento" style="color: var(--text); font-weight: 600;">R$ 0,00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);">
+                                <span style="color: var(--text-light); font-size: 0.95rem;">Custo de Energia:</span>
+                                <span id="res-energia" style="color: var(--text); font-weight: 600;">R$ 0,00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);">
+                                <span style="color: var(--text-light); font-size: 0.95rem;">Desgaste da Máquina:</span>
+                                <span id="res-desgaste" style="color: var(--text); font-weight: 600;">R$ 0,00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);">
+                                <span style="color: var(--text-light); font-size: 0.95rem;">Mão de Obra & Extras:</span>
+                                <span id="res-extras" style="color: var(--text); font-weight: 600;">R$ 0,00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);">
+                                <span style="color: var(--text-light); font-size: 1.1rem; font-weight: 600;">Custo Total (Produção):</span>
+                                <span id="res-custo-total" style="color: var(--danger); font-weight: 700; font-size: 1.2rem;">R$ 0,00</span>
+                            </div>
+
+                            <div style="background: rgba(0, 206, 201, 0.05); padding: 2rem 1.5rem; border-radius: var(--radius-md); border: 1px dashed var(--accent); text-align: center; box-shadow: var(--shadow-accent);">
+                                <span style="display: block; color: var(--accent); font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Preço Sugerido de Venda</span>
+                                <span id="res-venda" style="display: block; font-size: 3rem; font-weight: 800; color: var(--text); font-family: var(--font-display); margin-bottom: 0.5rem; word-break: break-all;">R$ 0,00</span>
+                                <span style="display: block; color: var(--success); font-size: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(0, 206, 201, 0.2);">Lucro Estimado: <strong id="res-lucro">R$ 0,00</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+       FOOTER
+       ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo" style="flex-direction: column; gap: 0.35rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fa-solid fa-cubes"></i>
+                    Studio T 3D
+                </div>
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-light); text-transform: none; font-family: var(--font-body);">Teu guia básico para impressões 3D fáceis</span>
+            </div>
+            <div class="footer-socials">
+                <a href="#" aria-label="Acessar Twitter do Guia"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Acessar Instagram do Guia"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Acessar Discord do Guia"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" aria-label="Acessar Github do Guia"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="footer-copy">Studio T 3D &copy; 2026. Teu guia básico para impressões 3D fáceis.</p>
+            <p class="footer-update">Última atualização: Junho de 2026</p>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo da página">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Modal de Zoom do Infográfico -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <button class="modal-close" id="modalClose" aria-label="Fechar Imagem">&times;</button>
+        <img class="modal-content" id="modalImage" alt="Ciclo da Impressão 3D Perfeita Infográfico">
+    </div>
+
+    <!-- ==========================================
+       JAVASCRIPT VANILLA DE INTERAÇÕES
+       ========================================== -->
+
+    <script>
+        // ==========================================
+        // ACORDEON (OPÇÕES AVANÇADAS)
+        // ==========================================
+        function toggleAccordion(header) {
+            const accordion = header.parentElement;
+            const chevron = header.querySelector('.chevron');
+            
+            accordion.classList.toggle('active');
+            const body = accordion.querySelector('.accordion-body');
+            
+            if (accordion.classList.contains('active')) {
+                body.style.maxHeight = body.scrollHeight + "px";
+                chevron.style.transform = "rotate(180deg)";
+                accordion.style.borderColor = "var(--primary)";
+            } else {
+                body.style.maxHeight = null;
+                chevron.style.transform = "rotate(0deg)";
+                accordion.style.borderColor = "var(--border)";
+            }
+        }
+
+        // ==========================================
+        // MÁSCARAS E FORMATAÇÕES
+        // ==========================================
+        const moneyInputs = document.querySelectorAll('.mask-money');
+        const numberInputs = document.querySelectorAll('.mask-number');
+
+        function parseMoney(str) {
+            if (!str) return 0;
+            let val = str.replace(/[^\d,.-]/g, '');
+            val = val.replace(/\./g, '');
+            val = val.replace(',', '.');
+            return parseFloat(val) || 0;
+        }
+
+        function formatMoney(value) {
+            if (isNaN(value)) value = 0;
+            return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+        
+        function parseNumber(str) {
+            if (!str) return 0;
+            let val = str.replace(',', '.');
+            return parseFloat(val) || 0;
+        }
+
+        moneyInputs.forEach(input => {
+            // Remove máscara ao focar
+            input.addEventListener('focus', (e) => {
+                const val = parseMoney(e.target.value);
+                if (val === 0 && e.target.value === '') return;
+                e.target.value = val.toString().replace('.', ',');
+            });
+            // Aplica máscara ao sair
+            input.addEventListener('blur', (e) => {
+                const val = parseMoney(e.target.value);
+                e.target.value = formatMoney(val);
+                calcularCustos();
+            });
+            input.addEventListener('input', calcularCustos);
+        });
+
+        numberInputs.forEach(input => {
+            input.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/[^\d.,]/g, '');
+                calcularCustos();
+            });
+        });
+
+        // ==========================================
+        // PRESETS (COMBOBOXES)
+        // ==========================================
+        const presetFilamento = document.getElementById('preset-filamento');
+        const presetImpressora = document.getElementById('preset-impressora');
+        const presetComplexidade = document.getElementById('preset-complexidade');
+
+        presetFilamento.addEventListener('change', (e) => {
+            const option = e.target.selectedOptions[0];
+            if(option && option.value !== "") {
+                document.getElementById('calc-preco-carretel').value = formatMoney(parseFloat(option.getAttribute('data-preco')));
+                document.getElementById('calc-peso-carretel').value = option.getAttribute('data-peso');
+                calcularCustos();
+            }
+        });
+
+        presetImpressora.addEventListener('change', (e) => {
+            const option = e.target.selectedOptions[0];
+            if(option && option.value !== "") {
+                document.getElementById('calc-consumo-w').value = option.getAttribute('data-consumo');
+                document.getElementById('calc-desgaste').value = formatMoney(parseFloat(option.getAttribute('data-desgaste')));
+                calcularCustos();
+            }
+        });
+
+        presetComplexidade.addEventListener('change', (e) => {
+            const option = e.target.selectedOptions[0];
+            if(option && option.value !== "") {
+                document.getElementById('calc-extras').value = formatMoney(parseFloat(option.getAttribute('data-extras')));
+                document.getElementById('calc-margem').value = option.getAttribute('data-margem');
+                document.getElementById('calc-tempo-trabalho').value = option.getAttribute('data-tempo');
+                calcularCustos();
+            }
+        });
+
+        // ==========================================
+        // LÓGICA DA CALCULADORA
+        // ==========================================
+        function calcularCustos() {
+            // Filamento
+            const precoCarretel = parseMoney(document.getElementById('calc-preco-carretel').value);
+            const pesoCarretel = parseNumber(document.getElementById('calc-peso-carretel').value);
+            const pesoPeca = parseNumber(document.getElementById('calc-peso-peca').value);
+
+            let custoFilamento = 0;
+            if (pesoCarretel > 0) {
+                custoFilamento = (precoCarretel / pesoCarretel) * pesoPeca;
+            }
+
+            // Energia
+            const consumoW = parseNumber(document.getElementById('calc-consumo-w').value);
+            const tempoH = parseNumber(document.getElementById('calc-tempo-h').value);
+            const tarifa = parseMoney(document.getElementById('calc-tarifa').value);
+
+            const consumoKwh = (consumoW * tempoH) / 1000;
+            const custoEnergia = consumoKwh * tarifa;
+
+            // Máquina
+            const desgasteHora = parseMoney(document.getElementById('calc-desgaste').value);
+            const custoDesgaste = desgasteHora * tempoH;
+
+            // Trabalho e Extras
+            const extras = parseMoney(document.getElementById('calc-extras').value);
+            const horaHomem = parseMoney(document.getElementById('calc-hora-homem').value);
+            const tempoTrabalho = parseNumber(document.getElementById('calc-tempo-trabalho').value);
+            const custoMaoObra = horaHomem * tempoTrabalho;
+            const custoExtras = extras + custoMaoObra;
+
+            // Margem
+            const margem = parseNumber(document.getElementById('calc-margem').value);
+
+            const custoTotal = custoFilamento + custoEnergia + custoDesgaste + custoExtras;
+            const lucro = custoTotal * (margem / 100);
+            const precoVenda = custoTotal + lucro;
+
+            // Atualizar UI
+            document.getElementById('res-filamento').innerText = "R$ " + formatMoney(custoFilamento);
+            document.getElementById('res-energia').innerText = "R$ " + formatMoney(custoEnergia);
+            document.getElementById('res-desgaste').innerText = "R$ " + formatMoney(custoDesgaste);
+            document.getElementById('res-extras').innerText = "R$ " + formatMoney(custoExtras);
+            
+            document.getElementById('res-custo-total').innerText = "R$ " + formatMoney(custoTotal);
+            document.getElementById('res-venda').innerText = "R$ " + formatMoney(precoVenda);
+            document.getElementById('res-lucro').innerText = "R$ " + formatMoney(lucro);
+        }
+
+        // O Navbar scroll listener (herdado do index)
+        const navbarWrapper = document.getElementById('navbarWrapper');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbarWrapper.classList.add('scrolled');
+            } else {
+                navbarWrapper.classList.remove('scrolled');
+            }
+        });
+
+        // Theme logic
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        function setTheme(theme) {
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+                themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                document.body.classList.remove('light-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+            localStorage.setItem('theme', theme);
+        }
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') setTheme('light');
+        else setTheme('dark');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+            setTheme(currentTheme === 'light' ? 'dark' : 'light');
+        });
+
+        // Inicialização
+        calcularCustos();
+    </script>
+</body>
+</html>
