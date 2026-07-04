@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+{{> head }}
+<body>
+    {{> header }}
+    
+    <main class="main-content">
+        <section class="section" id="glossario">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Dicionário 3D</span>
+                    <h2 class="section-title">Glossário de Siglas e Termos</h2>
+                    <p class="section-subtitle">Pesquise e compreenda termos essenciais sobre a mecânica, fatiamento e problemas frequentes de impressão.</p>
+                </div>
+
+                <div class="glossary-search-wrapper">
+                    <input type="text" class="glossary-search" id="glossarySearch" placeholder="Busque por termos (ex: STL, Warping, Infill)..." aria-label="Pesquisar no glossário">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <div class="grid">
+                    <!-- Termos da Impressora -->
+                    <div class="accordion-group" id="groupPrinter">
+                        <h3 class="accordion-group-title"><i class="fa-solid fa-gear"></i> Mecânica da Impressora</h3>
+                        <div class="accordion-list">
+                            <!-- STL -->
+                            <div class="accordion" data-term="stl stl file arquivo triangulos malha">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        <span class="term-sigla">STL</span> Standard Triangle Language
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        É o formato de arquivo mais tradicional e utilizado na impressão 3D. Ele descreve apenas a geometria da superfície de um objeto 3D através de uma malha tridimensional de triângulos, sem cores, texturas ou outras propriedades físicas do modelo.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 3MF -->
+                            <div class="accordion" data-term="3mf xml moderno arquivo metadata">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        <span class="term-sigla">3MF</span> 3D Manufacturing Format
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Um formato moderno de arquivo baseado em XML. Diferente do STL, o 3MF pode conter informações de cores, materiais, texturas, orientações da mesa de fatiamento e metadados vitais de configuração, sendo mais leve e menos propenso a erros de malha.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FDM/FFF -->
+                            <div class="accordion" data-term="fdm fff fusao filamento extrusao deposito">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        <span class="term-sigla">FDM / FFF</span> Fusion Deposition Modeling
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Termos sinônimos (FFF é a sigla livre de patentes) para o método de impressão 3D mais popular. Consiste na extrusão de filamento plástico termoplástico aquecido, que é depositado camada por camada para construir o modelo físico.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Nozzle -->
+                            <div class="accordion" data-term="nozzle bico extrusor bronze latão saida hotend">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Bico (Nozzle)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        A pequena peça metálica rosqueada na ponta do bloco de aquecimento (Hotend) por onde sai o plástico fundido. O tamanho padrão de fábrica costuma ser 0.4mm, mas existem bocais de 0.2mm (para alta resolução) a 1.0mm (para impressões super rápidas).
+                                        <img src="images/nozzle.png" alt="Bico de latão de impressora 3D" class="glossary-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Bed -->
+                            <div class="accordion" data-term="bed mesa plataforma placa adesao pei vidro">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Mesa (Bed)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        A plataforma horizontal onde a impressão é construída. Na maioria das impressoras atuais, a mesa é aquecida para garantir que a primeira camada de plástico grude (adesão) e evite descolamentos durante o processo. Pode conter chapas magnéticas PEI flexíveis ou superfícies de vidro texturizado.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Extrusor -->
+                            <div class="accordion" data-term="extrusor tracao tracionador engrenagem motor filamento push">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Extrusora (Extruder)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        O motor e conjunto de engrenagens responsáveis por puxar o filamento plástico rígido do rolo e empurrá-lo com precisão mecânica para dentro do hotend quente.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Hotend -->
+                            <div class="accordion" data-term="hotend aquecimento cartucho termistor garganta fusao bloco">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Hotend
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        O conjunto do bico que aquece, derrete e direciona o filamento. É composto pelo bloco de aquecimento, termistor (sensor de temperatura), cartucho aquecedor, dissipador de calor e a barreira térmica (throat/garganta).
+                                        <img src="images/hotend.png" alt="Conjunto do Hotend de Impressora 3D" class="glossary-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Direct Drive -->
+                            <div class="accordion" data-term="direct drive motor proximo hotend flexivel tpu">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Direct Drive
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Sistema em que a extrusora (engrenagens e motor) é montada diretamente acima do hotend. Isso elimina folgas, permite um controle muito preciso da extrusão e facilita a impressão de filamentos macios e flexíveis (como TPU).
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Bowden -->
+                            <div class="accordion" data-term="bowden tubo ptfe longo motor fixo distancia">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Bowden
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Configuração mecânica onde a extrusora é fixada na estrutura da impressora, empurrando o filamento através de um tubo longo de PTFE (teflon) até o cabeçote móvel onde fica o hotend. Deixa o cabeçote leve e mais rápido, mas gera maior folga (necessitando de alta retração) e dificulta materiais flexíveis.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Configurações -->
+                    <div class="accordion-group" id="groupSettings">
+                        <h3 class="accordion-group-title"><i class="fa-solid fa-sliders"></i> Ajustes e Configurações</h3>
+                        <div class="accordion-list">
+                            <!-- Layer Height -->
+                            <div class="accordion" data-term="layer height altura camada resolucao qualidade z">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Altura da Camada (Layer Height)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        A espessura vertical de cada camada individual depositada pela impressora 3D. Controla diretamente o nível de detalhes do objeto físico. Camadas menores (ex: 0.12mm) dão alta resolução visual, enquanto camadas maiores (ex: 0.28mm) reduzem drasticamente o tempo total da impressão.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Infill -->
+                            <div class="accordion" data-term="infill preenchimento interno densidade estrutura giroide grade">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Preenchimento (Infill)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        A estrutura interna da peça. Impressões 3D não costumam ser 100% sólidas. Em vez disso, usa-se uma porcentagem de preenchimento (ex: 15%) e padrões geométricos (Giroide, Grade, Cúbico) para economizar material mantendo alta resistência mecânica.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Wall -->
+                            <div class="accordion" data-term="wall paredes perimetro casca contorno externas">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Paredes (Wall Count / Perimeters)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        O número de contornos de plástico que formam as superfícies externas (casca) da peça. Aumentar a quantidade de paredes (ex: de 2 para 4) é mais eficaz para tornar uma peça resistente a impactos do que simplesmente aumentar a porcentagem do preenchimento.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Support -->
+                            <div class="accordion" data-term="support suporte balanco overhang angulo arvore">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Suportes (Supports)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Estruturas plásticas de sacrifício geradas pelo fatiador para sustentar partes flutuantes do modelo que possuem ângulos inclinados acentuados (geralmente acima de 45°-50°). São removidos após o término da impressão. Existem suportes tradicionais (grade/linear) e orgânicos (em árvore).
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Brim -->
+                            <div class="accordion" data-term="brim aba saia borda base descolamento">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Brim
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Uma borda plana de plástico conectada à base do modelo, estendendo a sua área de contato direto com a mesa aquecida. É muito eficiente para prevenir que cantos de peças grandes de ABS ou PLA deslem e empolem da mesa devido às contrações térmicas.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Raft -->
+                            <div class="accordion" data-term="raft balsa base grossa suporte inferior">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Raft
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Uma "balsa" espessa de plástico impressa sob o modelo. Era muito usada em impressoras antigas sem mesa aquecida ou desalinhadas. Consome muito material e tempo, sendo amplamente substituída pelo uso de Brim e mesas PEI adequadamente niveladas.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Retração -->
+                            <div class="accordion" data-term="retracao retraction puxar fiapos stringing motor tras">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Retração (Retraction)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Ação mecânica em que a extrusora puxa levemente o filamento para trás antes que o cabeçote realize movimentos livres de deslocamento rápido no ar. Alivia a pressão líquida de plástico dentro do bico, prevenindo vazamentos de fiapos finos pela peça.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Z-Hop -->
+                            <div class="accordion" data-term="z hop levantamento z subir bico deslocamento">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Z-Hop
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Recurso que faz o eixo Z subir sutilmente (ex: 0.2mm) durante os movimentos rápidos de retração. Evita que o bico quente esbarre em partes finas ou curvas do modelo já impressas, prevenindo deslocamento físico de peças ou colisões na mesa.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Flow -->
+                            <div class="accordion" data-term="flow multiplicador extrusao volume vazao quantidade">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Fluxo (Flow / Extrusion Multiplier)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        O fator multiplicador que controla o volume de material empurrado pela extrusora. Normalmente expresso em decimais (ex: 0.95 a 1.05). Ajustar o fluxo corrige problemas sutis de excesso ou falta de material nas superfícies horizontais.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Speed -->
+                            <div class="accordion" data-term="speed velocidade milimetros por segundo avanco">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Velocidade (Print Speed)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        A velocidade linear máxima do movimento do cabeçote durante a deposição física do plástico, medida em milímetros por segundo (mm/s). Impressoras modernas alcançam de 250mm/s a 500mm/s com motores e dinâmicas sofisticadas.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problemas Comuns -->
+                    <div class="accordion-group" id="groupProblems">
+                        <h3 class="accordion-group-title"><i class="fa-solid fa-triangle-exclamation"></i> Problemas Comuns</h3>
+                        <div class="accordion-list">
+                            <!-- Warping -->
+                            <div class="accordion" data-term="warping empenamento descolamento cantos mesa contração">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Empenamento (Warping)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Fenômeno térmico onde os cantos e extremidades inferiores da peça impressa contraem-se excessivamente ao esfriar rápido demais, se descolando da mesa aquecida e empenando. Muito comum em materiais de alta contração como ABS e ASA.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Stringing -->
+                            <div class="accordion" data-term="stringing fiapos teias cabelo vazamento bico">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Fiapos (Stringing)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Fios e teias finas de plástico indesejadas deixadas entre espaços vazios do modelo. Ocorre devido a temperaturas de extrusão excessivas, retração ineficaz ou umidade acumulada no filamento rígido.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Under-extrusion -->
+                            <div class="accordion" data-term="under extrusion subextrusão falta plastico falha buracos fraco">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Subextrusão (Under-extrusion)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Ocorre quando a impressora entrega menos material do que o planejado. Causa buracos, linhas falhadas, camadas fracas que descolam sozinhas e peças extremamente frágeis. Pode ser originado por entupimento parcial do bico, extrusora frouxa ou temperatura baixa.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Over-extrusion -->
+                            <div class="accordion" data-term="over extrusion superextrusão excesso plastico rugoso feio">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Superextrusão (Over-extrusion)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Quando a impressora extruda mais material do que o calculado. As peças perdem a precisão dimensional e ficam com rugosidades ásperas e bolhas de plástico nas laterais e no topo. Geralmente corrigido ajustando o fluxo (Flow) ou calibrando o diâmetro do filamento.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Layer Shift -->
+                            <div class="accordion" data-term="layer shift deslocamento camada correia motor escorregou degrau">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Deslocamento de Camada (Layer Shift)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Um desalinhamento que cria um "degrau" físico visível no meio do modelo, arruinando a impressão. Ocorre por correias frouxas, superaquecimento dos drivers dos motores ou quando o bico choca-se violentamente contra a peça.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Elephant Foot -->
+                            <div class="accordion" data-term="elephant foot pata elefante esmagada primeira camada mesa quente">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Pata de Elefante (Elephant Foot)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Achatamento e dilatação exagerada das primeiras camadas inferiores da peça contra a mesa aquecida. Geralmente causada por mesa excessivamente quente ou bico pressionado muito próximo da plataforma.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Ghosting -->
+                            <div class="accordion" data-term="ghosting eco vibracao ondulação marca lateral">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Eco / Ondulações (Ghosting / Ringing)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        Marcas onduladas ou padrões que parecem "ecos" nas laterais das impressões, especialmente ao redor de textos ou cantos afiados. Resulta da vibração inercial mecânica da impressora em altas velocidades. Corrigido com tensionamento de correias e calibração de Input Shaping.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Spaghetti -->
+                            <div class="accordion" data-term="spaghetti espaguete bagunça ninho soltou ar arrepio">
+                                <button class="accordion-header" onclick="toggleAccordion(this)">
+                                    <div class="accordion-header-title">
+                                        Espaguete (Spaghetti)
+                                    </div>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </button>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">
+                                        O clássico e frustrante erro onde a impressora joga plástico no ar após a peça se descolar da mesa de impressão. O resultado é um ninho de macarrão plástico de fios emaranhados e soltos pela impressora.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{> trail-nav }}
+</main>
+
+    {{> footer }}
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

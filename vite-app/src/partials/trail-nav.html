@@ -1,0 +1,26 @@
+<!-- TRAIL NAVIGATION (Next/Prev) -->
+<section class="trail-nav">
+  <div class="trail-nav-container container">
+    {{#if prevLink}}
+    <a href="{{prevLink}}" class="trail-btn trail-prev">
+      <div class="trail-btn-content">
+        <span class="trail-label">Passo Anterior</span>
+        <span class="trail-title"><i class="fa-solid fa-arrow-left"></i> {{prevTitle}}</span>
+      </div>
+    </a>
+    {{else}}
+    <div class="trail-spacer"></div>
+    {{/if}}
+
+    {{#if nextLink}}
+    <a href="{{nextLink}}" class="trail-btn trail-next">
+      <div class="trail-btn-content">
+        <span class="trail-label">Próximo Passo</span>
+        <span class="trail-title">{{nextTitle}} <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </a>
+    {{else}}
+    <div class="trail-spacer"></div>
+    {{/if}}
+  </div>
+</section>

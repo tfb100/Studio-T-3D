@@ -1,0 +1,31 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Studio T 3D: Teu guia básico completo para começar a imprimir em 3D de forma fácil. Aprenda sobre calibragem, checklists de verificação, fatiadores e filamentos.">
+    <!-- View Transitions API -->
+    <meta name="view-transition" content="same-origin">
+    
+    <title>Studio T 3D - Teu guia básico para impressões 3D fáceis</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Previne Flash of Inaccurate Color Theme -->
+    <script>
+        (function(){
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+                document.documentElement.classList.add('light-theme');
+            }
+        })();
+    </script>
+</head>

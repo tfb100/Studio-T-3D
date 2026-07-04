@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+{{> head }}
+<body>
+    {{> header }}
+    
+    <main class="main-content">
+        <section class="section bg-alt" id="filamentos">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Materiais Termoplásticos</span>
+                    <h2 class="section-title">Guia Completo de Filamentos</h2>
+                    <p class="section-subtitle">Conheça as principais características, temperaturas operacionais, vantagens e desvantagens de cada tipo de material utilizado.</p>
+                </div>
+
+                <div class="grid">
+                    <!-- PLA -->
+                    <div class="filament-card pla">
+                        <div class="filament-header">
+                            <span class="filament-name">PLA</span>
+                            <span class="badge easy"><i class="fa-solid fa-face-smile"></i> Fácil</span>
+                        </div>
+                        <p class="filament-desc">O termoplástico mais comum e recomendado para iniciantes. Feito de fontes renováveis como amido de milho.</p>
+                        <div class="filament-temps">
+                            <span class="temp-badge"><i class="fa-solid fa-fire"></i> Bico: 190 - 220°C</span>
+                            <span class="temp-badge"><i class="fa-solid fa-mattress-pillow"></i> Mesa: 20 - 60°C</span>
+                        </div>
+                        <div class="filament-pros-cons">
+                            <p class="pro"><i class="fa-solid fa-plus"></i> Muito fácil de imprimir; sem odores nocivos</p>
+                            <p class="con"><i class="fa-solid fa-minus"></i> Amolece a 55°C; quebradiço sob carga</p>
+                        </div>
+                        <div class="filament-uso">
+                            <strong>Uso Indicado:</strong> Protótipos visuais, brinquedos, decoração e maquetes.
+                        </div>
+                    </div>
+
+                    <!-- PETG -->
+                    <div class="filament-card petg">
+                        <div class="filament-header">
+                            <span class="filament-name">PETG</span>
+                            <span class="badge medium"><i class="fa-solid fa-face-meh"></i> Médio</span>
+                        </div>
+                        <p class="filament-desc">A fusão ideal entre a facilidade do PLA e a resistência do ABS. Excelente resistência mecânica e química.</p>
+                        <div class="filament-temps">
+                            <span class="temp-badge"><i class="fa-solid fa-fire"></i> Bico: 230 - 250°C</span>
+                            <span class="temp-badge"><i class="fa-solid fa-mattress-pillow"></i> Mesa: 70 - 80°C</span>
+                        </div>
+                        <div class="filament-pros-cons">
+                            <p class="pro"><i class="fa-solid fa-plus"></i> Forte, durável, resistente a raios UV</p>
+                            <p class="con"><i class="fa-solid fa-minus"></i> Fiapos constantes; gruda demais na mesa</p>
+                        </div>
+                        <div class="filament-uso">
+                            <strong>Uso Indicado:</strong> Suportes funcionais, organizadores e peças externas.
+                        </div>
+                    </div>
+
+                    <!-- TPU -->
+                    <div class="filament-card tpu">
+                        <div class="filament-header">
+                            <span class="filament-name">TPU</span>
+                            <span class="badge medium"><i class="fa-solid fa-face-meh"></i> Médio</span>
+                        </div>
+                        <p class="filament-desc">Material elástico extremamente resistente ao desgaste e a impactos físicos. Lembra borracha flexível.</p>
+                        <div class="filament-temps">
+                            <span class="temp-badge"><i class="fa-solid fa-fire"></i> Bico: 220 - 240°C</span>
+                            <span class="temp-badge"><i class="fa-solid fa-mattress-pillow"></i> Mesa: 40 - 60°C</span>
+                        </div>
+                        <div class="filament-pros-cons">
+                            <p class="pro"><i class="fa-solid fa-plus"></i> Altamente flexível, durável, amortecedor</p>
+                            <p class="con"><i class="fa-solid fa-minus"></i> Exige baixa velocidade; absorve umidade</p>
+                        </div>
+                        <div class="filament-uso">
+                            <strong>Uso Indicado:</strong> Capas protetoras, rodinhas, amortecedores e solas.
+                        </div>
+                    </div>
+
+                    <!-- ABS -->
+                    <div class="filament-card abs">
+                        <div class="filament-header">
+                            <span class="filament-name">ABS</span>
+                            <span class="badge hard"><i class="fa-solid fa-face-frown"></i> Difícil</span>
+                        </div>
+                        <p class="filament-desc">Plástico clássico de alta resistência térmica e mecânica. Muito durável, mas chato de imprimir.</p>
+                        <div class="filament-temps">
+                            <span class="temp-badge"><i class="fa-solid fa-fire"></i> Bico: 240 - 260°C</span>
+                            <span class="temp-badge"><i class="fa-solid fa-mattress-pillow"></i> Mesa: 100 - 110°C</span>
+                        </div>
+                        <div class="filament-pros-cons">
+                            <p class="pro"><i class="fa-solid fa-plus"></i> Resistente ao calor; aceita acabamento acetona</p>
+                            <p class="con"><i class="fa-solid fa-minus"></i> Warping severo; emite gases tóxicos</p>
+                        </div>
+                        <div class="filament-uso">
+                            <strong>Uso Indicado:</strong> Peças mecânicas automotivas e cases industriais.
+                        </div>
+                    </div>
+
+                    <!-- ASA -->
+                    <div class="filament-card asa">
+                        <div class="filament-header">
+                            <span class="filament-name">ASA</span>
+                            <span class="badge hard"><i class="fa-solid fa-face-frown"></i> Difícil</span>
+                        </div>
+                        <p class="filament-desc">Semelhante ao ABS, porém desenvolvido com altíssima resistência a raios solares UV e intempéries.</p>
+                        <div class="filament-temps">
+                            <span class="temp-badge"><i class="fa-solid fa-fire"></i> Bico: 240 - 260°C</span>
+                            <span class="temp-badge"><i class="fa-solid fa-mattress-pillow"></i> Mesa: 100 - 110°C</span>
+                        </div>
+                        <div class="filament-pros-cons">
+                            <p class="pro"><i class="fa-solid fa-plus"></i> Excelente para o sol; mecânica impecável</p>
+                            <p class="con"><i class="fa-solid fa-minus"></i> Warping alto; exige cabine fechada</p>
+                        </div>
+                        <div class="filament-uso">
+                            <strong>Uso Indicado:</strong> Suportes externos, jardinagem e automotivo externo.
+                        </div>
+                    </div>
+
+                    <!-- Nylon -->
+                    <div class="filament-card nylon">
+                        <div class="filament-header">
+                            <span class="filament-name">Nylon (PA)</span>
+                            <span class="badge hard"><i class="fa-solid fa-face-frown"></i> Difícil</span>
+                        </div>
+                        <p class="filament-desc">Plástico de engenharia de extrema resistência ao desgaste, flexibilidade e baixo atrito físico.</p>
+                        <div class="filament-temps">
+                            <span class="temp-badge"><i class="fa-solid fa-fire"></i> Bico: 240 - 270°C</span>
+                            <span class="temp-badge"><i class="fa-solid fa-mattress-pillow"></i> Mesa: 70 - 100°C</span>
+                        </div>
+                        <div class="filament-pros-cons">
+                            <p class="pro"><i class="fa-solid fa-plus"></i> Durável, baixo atrito, flexibilidade mecânica</p>
+                            <p class="con"><i class="fa-solid fa-minus"></i> Altamente higroscópico; warping extremo</p>
+                        </div>
+                        <div class="filament-uso">
+                            <strong>Uso Indicado:</strong> Engrenagens, dobradiças, buchas e peças de alto impacto.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabela Comparativa de Filamentos -->
+                <div class="table-responsive">
+                    <table class="quick-ref-table">
+                        <thead>
+                            <tr>
+                                <th>Filamento</th>
+                                <th>Temp. Bico</th>
+                                <th>Temp. Mesa</th>
+                                <th>Dificuldade</th>
+                                <th>Mesa Fechada</th>
+                                <th>Resistência Mecânica</th>
+                                <th>Resistência Térmica</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>PLA</strong></td>
+                                <td>190 - 220°C</td>
+                                <td>20 - 60°C</td>
+                                <td><span class="badge easy">Fácil</span></td>
+                                <td>Não</td>
+                                <td>Baixa-Média</td>
+                                <td>Baixa (~55°C)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PETG</strong></td>
+                                <td>230 - 250°C</td>
+                                <td>70 - 80°C</td>
+                                <td><span class="badge medium">Médio</span></td>
+                                <td>Não</td>
+                                <td>Alta</td>
+                                <td>Média (~75°C)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TPU</strong></td>
+                                <td>220 - 240°C</td>
+                                <td>40 - 60°C</td>
+                                <td><span class="badge medium">Médio</span></td>
+                                <td>Não</td>
+                                <td>Alta (Flexível)</td>
+                                <td>Média (~70°C)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ABS</strong></td>
+                                <td>240 - 260°C</td>
+                                <td>100 - 110°C</td>
+                                <td><span class="badge hard">Difícil</span></td>
+                                <td>Sim</td>
+                                <td>Alta</td>
+                                <td>Alta (~95°C)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ASA</strong></td>
+                                <td>240 - 260°C</td>
+                                <td>100 - 110°C</td>
+                                <td><span class="badge hard">Difícil</span></td>
+                                <td>Sim</td>
+                                <td>Alta</td>
+                                <td>Alta (~95°C)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nylon</strong></td>
+                                <td>240 - 270°C</td>
+                                <td>70 - 100°C</td>
+                                <td><span class="badge hard">Difícil</span></td>
+                                <td>Sim</td>
+                                <td>Extrema</td>
+                                <td>Alta (~120°C)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section><section class="section" id="armazenamento">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Manutenção Básica</span>
+                    <h2 class="section-title">Como Armazenar Seus Filamentos</h2>
+                    <p class="section-subtitle">Evite a umidade excessiva nos filamentos termoplásticos, que prejudica a adesão e causa sérios erros estéticos nas impressões.</p>
+                </div>
+
+                <!-- Highlight Box (Regra de Ouro) -->
+                <div class="highlight-box">
+                    <div class="highlight-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="highlight-content">
+                        <h3>A Regra de Ouro da Conservação:</h3>
+                        <p>O filamento úmido causa 90% dos erros misteriosos de acabamento nas superfícies plásticas. Mantenha os seus rolos sempre protegidos do ar ambiente local.</p>
+                    </div>
+                </div>
+
+                <!-- 4 Métodos de Armazenamento -->
+                <h3 class="storage-section-title"><i class="fa-solid fa-box-archive"></i> 4 Métodos Eficientes de Conservação</h3>
+                <div class="grid" style="margin-bottom: 4rem;">
+                    <div class="storage-card">
+                        <div class="storage-icon"><i class="fa-solid fa-box"></i></div>
+                        <h4>Caixas Herméticas</h4>
+                        <p>Armazene os rolos em potes ou caixas plásticas com vedação de borracha, repletas de sílica gel indicadora de umidade de qualidade.</p>
+                    </div>
+                    <div class="storage-card">
+                        <div class="storage-icon"><i class="fa-solid fa-temperature-arrow-up"></i></div>
+                        <h4>Desidratadores de Filamentos</h4>
+                        <p>Aparelhos elétricos dedicados que removem a umidade aquecendo o filamento ativamente por períodos contínuos (ex: 4-6h).</p>
+                    </div>
+                    <div class="storage-card">
+                        <div class="storage-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4>Secadores Comerciais</h4>
+                        <p>Caixas secas ativas com saídas integradas para filamento, permitindo que a impressora puxe o plástico direto do secador aquecido.</p>
+                    </div>
+                    <div class="storage-card">
+                        <div class="storage-icon"><i class="fa-solid fa-wind"></i></div>
+                        <h4>Sacos a Vácuo</h4>
+                        <p>A solução mais barata e econômica em espaço. Sacos vedados e compactados com o uso de bomba de vácuo manual e sílica gel.</p>
+                    </div>
+                </div>
+
+                <!-- Sinais de Filamento Úmido -->
+                <h3 class="storage-section-title" style="color: var(--danger);"><i class="fa-solid fa-droplet-slash"></i> Sinais Claros de Filamento Úmido</h3>
+                <div class="grid">
+                    <div class="symptom-card">
+                        <i class="fa-solid fa-volume-high symptom-icon"></i>
+                        <div class="symptom-info">
+                            <h4>Estalos no Hotend</h4>
+                            <p>Barulho característico de pequenas explosões no bico durante a impressão. É a água fervendo e vaporizando instantaneamente.</p>
+                        </div>
+                    </div>
+                    <div class="symptom-card">
+                        <i class="fa-solid fa-lines-leaning symptom-icon"></i>
+                        <div class="symptom-info">
+                            <h4>Stringing Excessivo</h4>
+                            <p>O surgimento de dezenas de teias finas indesejadas na peça, mesmo utilizando parâmetros adequados de retração do bico.</p>
+                        </div>
+                    </div>
+                    <div class="symptom-card">
+                        <i class="fa-solid fa-circle-nodes symptom-icon"></i>
+                        <div class="symptom-info">
+                            <h4>Superfície Porosa</h4>
+                            <p>As camadas externas e laterais do modelo apresentam bolhas minúsculas, falhas e texturas ásperas incomuns.</p>
+                        </div>
+                    </div>
+                    <div class="symptom-card">
+                        <i class="fa-solid fa-heart-crack symptom-icon"></i>
+                        <div class="symptom-info">
+                            <h4>Filamento Quebradiço</h4>
+                            <p>PLA que absorve umidade torna-se extremamente frágil, quebrando no meio do rolo ou ao entrar na extrusora.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        {{> trail-nav }}
+</main>
+
+    {{> footer }}
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

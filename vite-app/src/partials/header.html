@@ -1,0 +1,63 @@
+    <div class="navbar-wrapper" id="navbarWrapper">
+        <header class="container navbar">
+            <a href="#" class="logo" aria-label="Logo Studio T 3D">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Studio T 3D</span>
+            </a>
+            
+            <nav id="navMenu">
+                <ul class="nav-links">
+                <li><a href="/index.html" class="active">Início</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Aprender <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="/glossario.html">Glossário</a>
+                        <a href="/procedimentos.html">Procedimentos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Equipamentos <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="/impressoras.html">Impressoras</a>
+                        <a href="/materiais.html">Materiais</a>
+                        <a href="/softwares.html">Softwares</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Ferramentas <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="/calculadora.html">Calculadora de Custos</a>
+                    </div>
+                </li>
+            </ul>
+            </nav>
+            
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar Tema Claro/Escuro">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+            </div>
+        </header>
+
+    <div class="trail-stepper">
+        <div class="container">
+            <div class="stepper-label">Trilha de Conhecimento: <span class="current-step-title">{{title}}</span></div>
+            <div class="stepper-dots">
+                <span class="step-dot {{#if (eq step 1)}}active{{/if}}"></span>
+                <span class="step-dot {{#if (eq step 2)}}active{{/if}}"></span>
+                <span class="step-dot {{#if (eq step 3)}}active{{/if}}"></span>
+                <span class="step-dot {{#if (eq step 4)}}active{{/if}}"></span>
+                <span class="step-dot {{#if (eq step 5)}}active{{/if}}"></span>
+                <span class="step-dot {{#if (eq step 6)}}active{{/if}}"></span>
+                <span class="step-dot {{#if (eq step 7)}}active{{/if}}"></span>
+            </div>
+        </div>
+    </div>
+
+    </div>

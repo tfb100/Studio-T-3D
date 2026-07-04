@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+{{> head }}
+<body>
+    {{> header }}
+    
+    <main class="main-content">
+        <section class="section bg-alt" id="ferramentas">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Softwares & Utils</span>
+                    <h2 class="section-title">Fatiadores e Ferramentas</h2>
+                    <p class="section-subtitle">Conheça os principais softwares de fatiamento no mercado e as melhores ferramentas recomendadas para calibração, modelagem e reparos.</p>
+                </div>
+
+                <!-- Tabela de Fatiadores -->
+                <h3 class="slicer-table-title"><i class="fa-solid fa-computer"></i> Tabela Comparativa de Fatiadores</h3>
+                <div class="table-responsive">
+                    <table class="quick-ref-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Bambu Lab A1</th>
+                                <th>Anycubic Kobra</th>
+                                <th>Dificuldade</th>
+                                <th>Destaque Principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Bambu Studio</strong></td>
+                                <td>Gratuito</td>
+                                <td>Excelente (Nativo)</td>
+                                <td>Médio (Via perfis)</td>
+                                <td>Fácil</td>
+                                <td>Integração Wi-Fi instantânea e controle AMS simplificado.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PrusaSlicer</strong></td>
+                                <td>Gratuito / Open Source</td>
+                                <td>Bom (Via perfis)</td>
+                                <td>Excelente (Nativo)</td>
+                                <td>Médio</td>
+                                <td>Muito estável com excelentes algoritmos de suportes em árvore.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ultimaker Cura</strong></td>
+                                <td>Gratuito</td>
+                                <td>Básico</td>
+                                <td>Excelente (Nativo)</td>
+                                <td>Fácil</td>
+                                <td>Grande biblioteca oficial de plugins úteis da comunidade.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OrcaSlicer</strong></td>
+                                <td>Gratuito / Open Source</td>
+                                <td>Excelente</td>
+                                <td>Excelente</td>
+                                <td>Avançado</td>
+                                <td>Testes internos de calibração nativos (fluxo, temperatura, etc.).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SuperSlicer</strong></td>
+                                <td>Gratuito / Open Source</td>
+                                <td>Não Recomendado</td>
+                                <td>Bom</td>
+                                <td>Avançado</td>
+                                <td>Controle cirúrgico de velocidades e dinâmicas de extrusão.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ferramentas Complementares -->
+                <h3 class="tool-category-title"><i class="fa-solid fa-screwdriver-wrench"></i> Ferramentas Recomendadas</h3>
+                <div class="grid">
+                    <!-- Modelagem 3D -->
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <span class="tool-name">Modelagem 3D</span>
+                            <span class="tool-tag">CAD / Malha</span>
+                        </div>
+                        <p class="tool-desc">Softwares para criar as suas próprias peças mecânicas ou modelos artísticos do zero.</p>
+                        <ul class="tool-items">
+                            <li><i class="fa-solid fa-chevron-right"></i> Tinkercad (Básico, online, iniciantes)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Fusion 360 (CAD paramétrico, peças precisas)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Blender (Modelagem orgânica e escultura digital)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> FreeCAD (Código aberto paramétrico livre)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Reparo de Mesh -->
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <span class="tool-name">Reparo de Mesh</span>
+                            <span class="tool-tag">Correções</span>
+                        </div>
+                        <p class="tool-desc">Ferramentas essenciais para corrigir erros de modelagem e fechar buracos na malha STL.</p>
+                        <ul class="tool-items">
+                            <li><i class="fa-solid fa-chevron-right"></i> 3D Builder (Nativo Windows, melhor reparador automático)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Meshmixer (Cortes limpos e encaixes manuais rápidos)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Netfabb (Profissional para erros geométricos complexos)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> PrusaSlicer (Serviço de reparo integrado da Netfabb)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Calibração -->
+                    <div class="tool-card">
+                        <div class="tool-header">
+                            <span class="tool-name">Calibração</span>
+                            <span class="tool-tag">Testes Físicos</span>
+                        </div>
+                        <p class="tool-desc">Modelos de teste e metodologias para ajustar perfeitamente o hardware da impressora.</p>
+                        <ul class="tool-items">
+                            <li><i class="fa-solid fa-chevron-right"></i> Teaching Tech (Guia web de calibração cirúrgica)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Cubo de Calibração XYZ (Medidas dimensionais)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Torre de Temperatura (Melhor ponto de fusão)</li>
+                            <li><i class="fa-solid fa-chevron-right"></i> Teste de Retração (Eliminar fiapos finos - stringing)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section><section class="section bg-alt" id="podcast">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Audioguia</span>
+                    <h2 class="section-title">Studio T 3D Podcast</h2>
+                    <p class="section-subtitle">Coloque os fones de ouvido e aprenda de forma descontraída com o nosso episódio especial contendo dicas cruciais sobre impressão 3D.</p>
+                </div>
+
+                <div class="podcast-container">
+                    <!-- Player Card -->
+                    <div class="podcast-player-card">
+                        <div class="podcast-cover-wrapper">
+                            <img src="images/podcast_cover.png" alt="Capa do Podcast Studio T 3D" class="podcast-cover-img">
+                            <div class="podcast-soundwave">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="podcast-player-details">
+                            <div class="podcast-meta">
+                                <span class="episode-tag">Episódio #01</span>
+                                <span class="duration-tag"><i class="fa-solid fa-clock"></i> Carregando...</span>
+                            </div>
+                            <h3 class="podcast-title">Como fazer impressões 3D perfeitas na prática</h3>
+                            <p class="podcast-artist">Studio T 3D - Guia Prático</p>
+
+                            <!-- Elemento de áudio oculto -->
+                            <audio id="podcastAudio" src="midias/Como_fazer_impressoes_3D_perfeitas_na_pratica.m4a" preload="metadata"></audio>
+
+                            <!-- Controles de Progresso -->
+                            <div class="player-progress-container">
+                                <span class="time-elapsed" id="timeElapsed">00:00</span>
+                                <div class="player-progress-bar" id="playerProgressBar">
+                                    <div class="player-progress-fill" id="playerProgressFill"></div>
+                                    <div class="player-progress-handle" id="playerProgressHandle"></div>
+                                </div>
+                                <span class="time-total" id="timeTotal">00:00</span>
+                            </div>
+
+                            <!-- Botões de Controle -->
+                            <div class="player-controls">
+                                <button class="control-btn" id="btnBackward" aria-label="Voltar 10 segundos">
+                                    <i class="fa-solid fa-backward-step"></i>
+                                </button>
+                                <button class="play-btn" id="btnPlayPause" aria-label="Reproduzir Podcast">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                                <button class="control-btn" id="btnForward" aria-label="Avançar 10 segundos">
+                                    <i class="fa-solid fa-forward-step"></i>
+                                </button>
+                            </div>
+
+                            <!-- Controle de Volume -->
+                            <div class="volume-container">
+                                <button class="volume-btn" id="btnMute" aria-label="Mutar volume">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                                <div class="volume-bar" id="volumeBar">
+                                    <div class="volume-fill" id="volumeFill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notas do Episódio -->
+                    <div class="podcast-notes-card">
+                        <h3><i class="fa-solid fa-list-check"></i> Conteúdo Discutido no Episódio</h3>
+                        <p class="notes-intro">Neste episódio especial de estreia, Thiago aborda detalhadamente as principais dores de quem está começando e os caminhos práticos para alcançar a impressão perfeita. Confira os tópicos discutidos:</p>
+                        
+                        <ul class="notes-topics">
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>A primeira camada perfeita (Z-Offset)</h4>
+                                    <p>O segredo da adesão mecânica correta: como identificar e regular a altura ideal da mesa sem achatar de menos ou raspar no vidro.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>Controle de umidade nos filamentos</h4>
+                                    <p>Como os estalos e fiapos revelam a contaminação por umidade do ar e os métodos seguros para desidratar o carretel (forno vs secador).</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>Ajustando temperaturas e velocidade</h4>
+                                    <p>A relação entre vazão térmica e aceleração mecânica: saiba quando imprimir a 300 mm/s e quando recuar para melhor detalhamento estético.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="topic-icon"><i class="fa-solid fa-circle-check"></i></div>
+                                <div class="topic-info">
+                                    <h4>Procedimentos pré e pós-impressão</h4>
+                                    <p>O papel da limpeza com álcool isopropílico (IPA) e a importância de deixar a mesa esfriar completamente antes de tentar remover a peça finalizada.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section><section class="section" id="stl">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Modelos Prontos</span>
+                    <h2 class="section-title">Onde Baixar Arquivos STL</h2>
+                    <p class="section-subtitle">Encontre e baixe projetos prontos criados pela comunidade global. Assista ao vídeo de dicas e filtre os sites por categorias.</p>
+                </div>
+
+                <!-- Video Box -->
+                <div class="video-box">
+                    <div class="video-player-container">
+                        <!-- Iframe do YouTube com Lazy Loading -->
+                        <iframe src="https://www.youtube.com/embed/5F_B2f-gA50" title="Onde Encontrar Arquivos STL Para Impressão 3D" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Dicas Extras de Downloads</h3>
+                        <p>Confira as dicas de ouro no vídeo criado pelo canal "Gustavo Prates 3D" no YouTube para descobrir a melhor forma de buscar modelos 3D livres de direitos ou de alta qualidade sem cair em links maliciosos.</p>
+                        <div class="channel-links">
+                            <a href="https://youtube.com/@GustavoPrates3D" target="_blank" rel="noopener" class="channel-btn youtube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                            <a href="https://instagram.com/gustavoprates" target="_blank" rel="noopener" class="channel-btn instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                            <a href="https://tiktok.com/@gustavoprates3d" target="_blank" rel="noopener" class="channel-btn tiktok"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STL Filters -->
+                <div class="stl-filters">
+                    <button class="stl-filter-btn active" data-filter="all">Todos os Sites</button>
+                    <button class="stl-filter-btn" data-filter="free">Totalmente Gratuitos</button>
+                    <button class="stl-filter-btn" data-filter="mixed">Modelos Mistos</button>
+                    <button class="stl-filter-btn" data-filter="paid">Plataformas Premium</button>
+                </div>
+
+                <!-- STL Cards -->
+                <div class="stl-grid" id="stlGrid">
+                    <!-- MakerWorld -->
+                    <div class="site-card" data-category="free">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">MW</div>
+                            <span class="site-tag free">Gratuito</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>MakerWorld</h4>
+                            <p>A plataforma da Bambu Lab focada em modelos otimizados que podem ser fatiados diretamente no navegador ou aplicativo mobile.</p>
+                            <a href="https://makerworld.com" target="_blank" rel="noopener" class="site-link">Acessar MakerWorld <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Printables -->
+                    <div class="site-card" data-category="free">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">PR</div>
+                            <span class="site-tag free">Gratuito</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Printables</h4>
+                            <p>Plataforma da Prusa Research conhecida por sua altíssima curadoria de qualidade, moderação estrita e recompensas em filamentos.</p>
+                            <a href="https://printables.com" target="_blank" rel="noopener" class="site-link">Acessar Printables <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Thingiverse -->
+                    <div class="site-card" data-category="free">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">TH</div>
+                            <span class="site-tag free">Gratuito</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Thingiverse</h4>
+                            <p>A maior, mais antiga e clássica biblioteca de modelos 3D gratuitos mantida pela MakerBot. Excelente acervo de nicho.</p>
+                            <a href="https://thingiverse.com" target="_blank" rel="noopener" class="site-link">Acessar Thingiverse <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Yeggi -->
+                    <div class="site-card" data-category="free">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">YG</div>
+                            <span class="site-tag free">Gratuito</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Yeggi</h4>
+                            <p>O maior motor de busca agregador do mercado. Excelente para pesquisar termos em dezenas de sites simultaneamente.</p>
+                            <a href="https://yeggi.com" target="_blank" rel="noopener" class="site-link">Acessar Yeggi <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Thangs -->
+                    <div class="site-card" data-category="free">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">TG</div>
+                            <span class="site-tag free">Gratuito</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Thangs</h4>
+                            <p>Buscador de modelos 3D com inteligência artificial que permite pesquisar carregando um modelo geométrico similar.</p>
+                            <a href="https://thangs.com" target="_blank" rel="noopener" class="site-link">Acessar Thangs <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Cults3D -->
+                    <div class="site-card" data-category="mixed">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">C3</div>
+                            <span class="site-tag mixed">Misto</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Cults3D</h4>
+                            <p>Plataforma francesa muito popular com grande acervo de designers independentes contendo arquivos gratuitos e pagos.</p>
+                            <a href="https://cults3d.com" target="_blank" rel="noopener" class="site-link">Acessar Cults3D <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- MyMiniFactory -->
+                    <div class="site-card" data-category="mixed">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">MM</div>
+                            <span class="site-tag mixed">Misto</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>MyMiniFactory</h4>
+                            <p>Focado em miniaturas ricas em detalhes para RPGs de mesa e board games. Grande curadoria paga de alta qualidade.</p>
+                            <a href="https://myminifactory.com" target="_blank" rel="noopener" class="site-link">Acessar MyMiniFactory <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Pinshape -->
+                    <div class="site-card" data-category="mixed">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">PS</div>
+                            <span class="site-tag mixed">Misto</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Pinshape</h4>
+                            <p>Plataforma intuitiva mantida pela Formlabs com designs interessantes e excelentes tutoriais sobre fabricação digital.</p>
+                            <a href="https://pinshape.com" target="_blank" rel="noopener" class="site-link">Acessar Pinshape <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Patreon -->
+                    <div class="site-card" data-category="paid">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">PT</div>
+                            <span class="site-tag paid">Premium</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>Patreon</h4>
+                            <p>Sistema de assinaturas mensais de criadores independentes de miniaturas 3D e itens de cosplay complexos de alto padrão.</p>
+                            <a href="https://patreon.com" target="_blank" rel="noopener" class="site-link">Acessar Patreon <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- TurboSquid -->
+                    <div class="site-card" data-category="paid">
+                        <div class="site-card-header">
+                            <div class="site-logo-icon">TS</div>
+                            <span class="site-tag paid">Premium</span>
+                        </div>
+                        <div class="site-info">
+                            <h4>TurboSquid</h4>
+                            <p>Focado em modelagem tridimensional profissional para indústrias de jogos e arquitetura, oferecendo excelente precisão de malhas.</p>
+                            <a href="https://turbosquid.com" target="_blank" rel="noopener" class="site-link">Acessar TurboSquid <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{> trail-nav }}
+</main>
+
+    {{> footer }}
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

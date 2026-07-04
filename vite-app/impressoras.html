@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+{{> head }}
+<body>
+    {{> header }}
+    
+    <main class="main-content">
+        <section class="section" id="impressoras">
+            <div class="container">
+                <!-- Printer Tabs -->
+                <div class="printer-tabs">
+                    <button class="printer-tab active" onclick="switchPrinter('bambu')">
+                        <i class="fa-solid fa-cube"></i> Bambu Lab A1
+                    </button>
+                    <button class="printer-tab" onclick="switchPrinter('anycubic')">
+                        <i class="fa-solid fa-cubes"></i> Anycubic Kobra 2 Neo
+                    </button>
+                    <button class="printer-tab" onclick="switchPrinter('anycubicKobraX')">
+                        <i class="fa-solid fa-expand"></i> Anycubic Kobra X
+                    </button>
+                </div>
+
+                <!-- Bambu Lab Content -->
+                <div class="printer-content active" id="printerBambu">
+                    <div class="printer-grid">
+                        <div class="printer-image-container">
+                            <img src="images/bambu_a1.png" alt="Impressora 3D Bambu Lab A1 com AMS Lite">
+                        </div>
+                        <div class="printer-card-details">
+                            <h3>Bambu Lab A1 <span>AMS Lite</span></h3>
+                            <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem;">A Bambu Lab A1 revolucionou o mercado com sua facilidade de uso do tipo "plug and play", velocidades elevadas e o inovador sistema de impressão multicolorido.</p>
+                            
+                            <ul class="printer-specs-list">
+                                <li>
+                                    <i class="fa-solid fa-gauge-high"></i>
+                                    <div>
+                                        <strong>Velocidade Ultra Rápida:</strong>
+                                        <p>Movimentos de até 500mm/s com eixos metálicos robustos de guias lineares de alta qualidade.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-palette"></i>
+                                    <div>
+                                        <strong>Sistema Multicolorido (AMS Lite):</strong>
+                                        <p>Permite carregar e imprimir com até 4 filamentos de cores ou materiais diferentes na mesma peça.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-microchip"></i>
+                                    <div>
+                                        <strong>Sensores Inteligentes:</strong>
+                                        <p>Compensação de vibração ativa, medição automática de tensão das correias e calibração de fluxo de extrusão automatizada.</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="printer-cuidados">
+                                <h4><i class="fa-solid fa-circle-exclamation"></i> Cuidados Importantes:</h4>
+                                <ul>
+                                    <li>Limpe a placa PEI flexível apenas com água morna e detergente. Álcool IPA esporadicamente.</li>
+                                    <li>Verifique e limpe os eixos lineares metálicos frequentemente, lubrificando-os com graxa fina adequada.</li>
+                                    <li>Ao trocar bicos (nozzles rápidos da Bambu), aperte e monte a quente apenas conforme o guia oficial da fabricante.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Temperaturas Bambu -->
+                        <div class="settings-box">
+                            <div>
+                                <h3><i class="fa-solid fa-temperature-half"></i> Temperaturas Recomendadas (A1)</h3>
+                                <div class="temp-grid">
+                                    <div class="temp-row">
+                                        <span class="temp-material">PLA</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 200 - 220°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 35 - 45°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material">PETG</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 230 - 250°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 70 - 80°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material">TPU</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 220 - 240°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 35 - 45°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material" style="color: var(--text-light);">ABS/ASA *</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 250 - 270°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 90 - 100°C</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-fatiador-info">
+                                <p>* ABS/ASA não são recomendados de fábrica para a A1 devido à falta de enclousure (cabine fechada), mas podem ser impressos sob condições controladas em salas sem correntes de vento.</p>
+                                <p style="margin-top: 1rem;">Fatiador Padrão: <strong>Bambu Studio</strong> (Gratuito)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anycubic Content -->
+                <div class="printer-content" id="printerAnycubic">
+                    <div class="printer-grid">
+                        <div class="printer-image-container">
+                            <img src="images/kobra_2_neo.png" alt="Impressora 3D Anycubic Kobra 2 Neo">
+                        </div>
+                        <div class="printer-card-details">
+                            <h3>Anycubic Kobra 2 Neo <span>/ Kobra Series</span></h3>
+                            <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem;">A Anycubic Kobra 2 Neo oferece um excelente custo-benefício, ideal para iniciantes com orçamento limitado, entregando velocidade e facilidades de calibração automática.</p>
+                            
+                            <ul class="printer-specs-list">
+                                <li>
+                                    <i class="fa-solid fa-gears"></i>
+                                    <div>
+                                        <strong>Extrusor Direct Drive:</strong>
+                                        <p>Extrusão direta integrada que facilita enormemente a impressão de materiais variados, incluindo filamentos flexíveis como o TPU.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <div>
+                                        <strong>Nivelamento LeviQ 2.0:</strong>
+                                        <p>Sistema inteligente de nivelamento da mesa com ajuste automático e preciso do ponto de Z-offset de contato do bico.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-bolt"></i>
+                                    <div>
+                                        <strong>Velocidade Rápida de Entrada:</strong>
+                                        <p>Alcança velocidades de impressão recomendadas entre 150mm/s e 250mm/s com boa estabilidade dimensional.</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="printer-cuidados">
+                                <h4><i class="fa-solid fa-circle-exclamation"></i> Cuidados Importantes:</h4>
+                                <ul>
+                                    <li>Verifique e ajuste a tensão das correias nos eixos X e Y periodicamente usando os manípulos tensores.</li>
+                                    <li>Mantenha o fuso roscado do eixo Z sempre limpo e lubrificado com graxa ou óleo à base de PTFE.</li>
+                                    <li>Verifique se o bico quente não está bambu para evitar vazamentos de filamento na rosca do bloco aquecedor.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Temperaturas Anycubic -->
+                        <div class="settings-box">
+                            <div>
+                                <h3><i class="fa-solid fa-temperature-half"></i> Temperaturas Recomendadas (Kobra)</h3>
+                                <div class="temp-grid">
+                                    <div class="temp-row">
+                                        <span class="temp-material">PLA</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 190 - 210°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 50 - 60°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material">PETG</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 230 - 250°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 70 - 80°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material">TPU</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 220 - 240°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 40 - 50°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material" style="color: var(--text-light);">ABS/ASA *</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 240 - 260°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 90 - 100°C</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-fatiador-info">
+                                <p>* Imprimir ABS ou ASA na Anycubic exige colocar a impressora em um gabinete fechado (enclosure) para evitar o empenamento grave (warping) causado pelo ar ambiente.</p>
+                                <p style="margin-top: 1rem;">Fatiadores recomendados: <strong>Cura</strong> ou <strong>PrusaSlicer</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anycubic Kobra X Content -->
+                <div class="printer-content" id="printerAnycubicKobraX">
+                    <div class="printer-grid">
+                        <div class="printer-image-container">
+                            <img src="images/kobra_x.png" alt="Impressora 3D Anycubic Kobra X Multicolorida">
+                        </div>
+                        <div class="printer-card-details">
+                            <h3>Anycubic Kobra X <span>Multicolor e IA</span></h3>
+                            <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem;">A Anycubic Kobra X é uma impressora 3D FDM de alta velocidade e tecnologia multicolorida integrada, projetada para alternar entre até 19 cores. Equipada com a inovadora tecnologia ACE GEN2, ela realiza as trocas de cor diretamente no cabeçote, reduzindo o tempo de impressão pela metade e diminuindo o desperdício de filamento.</p>
+                            
+                            <ul class="printer-specs-list">
+                                <li>
+                                    <i class="fa-solid fa-palette"></i>
+                                    <div>
+                                        <strong>Multicolorida e Multimaterial (ACE GEN2):</strong>
+                                        <p>Suporta nativamente até 4 cores e pode misturar materiais rígidos e flexíveis (como PLA, PETG, TPU e PVA). Expansível para até 19 cores utilizando o módulo externo ACE2 Pro.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-gauge-high"></i>
+                                    <div>
+                                        <strong>Velocidade Incrível:</strong>
+                                        <p>Velocidade padrão de 300 mm/s e picos de até 600 mm/s (com aceleração impressionante de 20.000 mm/s²).</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-brain"></i>
+                                    <div>
+                                        <strong>Inteligência Artificial Integrada:</strong>
+                                        <p>Detecção ativa de falhas (como a formação de "espaguete" ou objetos estranhos na base) e função inteligente de pular peças defeituosas.</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="printer-cuidados">
+                                <h4><i class="fa-solid fa-circle-exclamation"></i> Cuidados Importantes:</h4>
+                                <ul>
+                                    <li>Mantenha a lente da câmera de IA limpa para garantir o funcionamento correto da detecção visual de falhas.</li>
+                                    <li>Mantenha o módulo ACE GEN2 em local seco e certifique-se de cortar a ponta do filamento antes de carregá-lo.</li>
+                                    <li>Limpe a plataforma PEI texturizada periodicamente com álcool isopropílico para manter a adesão perfeita do plástico.</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-top: 1.5rem;">
+                                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.5rem;">Para ver de perto o funcionamento da troca de cores e entender como a tecnologia ACE GEN2 atua na prática:</p>
+                                <a href="https://www.youtube.com/results?search_query=anycubic+kobra+x+ace+gen2" target="_blank" rel="noopener" class="btn btn-secondary" style="width: auto; padding: 0.6rem 1.25rem; font-size: 0.85rem;"><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> Assistir Troca de Cores ACE GEN2</a>
+                            </div>
+                        </div>
+
+                        <!-- Temperaturas Anycubic Kobra X -->
+                        <div class="settings-box">
+                            <div>
+                                <h3><i class="fa-solid fa-temperature-half"></i> Temperaturas Recomendadas (Kobra X)</h3>
+                                <div class="temp-grid">
+                                    <div class="temp-row">
+                                        <span class="temp-material">PLA</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 190 - 220°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 50 - 60°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material">PETG</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 230 - 250°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 70 - 80°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material">TPU</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 210 - 230°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 40 - 50°C</span>
+                                        </div>
+                                    </div>
+                                    <div class="temp-row">
+                                        <span class="temp-material">ABS/ASA *</span>
+                                        <div class="temp-values">
+                                            <span class="temp-badge nozzle-temp"><i class="fa-solid fa-fire"></i> 240 - 260°C</span>
+                                            <span class="temp-badge bed-temp"><i class="fa-solid fa-mattress-pillow"></i> 90 - 100°C</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-fatiador-info">
+                                <p>* O bico de aço temperado suporta até 300°C e a mesa aquecida até 100°C. Conectividade Wi-Fi de banda dupla (2.4G/5G) e porta LAN.</p>
+                                <p style="margin-top: 1rem;">Fatiadores nativos: <strong>AnycubicSlicer</strong> ou <strong>OrcaSlicer</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabela Comparativa de Impressoras -->
+                <h3 class="slicer-table-title" style="margin-top: 4rem;"><i class="fa-solid fa-code-compare"></i> Comparação Direta de Especificações</h3>
+                <div class="table-responsive">
+                    <table class="quick-ref-table">
+                        <thead>
+                            <tr>
+                                <th>Especificação</th>
+                                <th>Bambu Lab A1</th>
+                                <th>Anycubic Kobra 2 Neo</th>
+                                <th>Anycubic Kobra X</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cinemática</strong></td>
+                                <td>Bed Slinger (Guias Lineares Metálicas)</td>
+                                <td>Bed Slinger (Trilhos de Perfil V)</td>
+                                <td>Bed Slinger de Alta Velocidade (Guias Lineares)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Volume de Impressão</strong></td>
+                                <td>256 x 256 x 256 mm³</td>
+                                <td>220 x 220 x 250 mm³</td>
+                                <td>260 x 260 x 260 mm³</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Velocidade Máxima</strong></td>
+                                <td>500 mm/s (Aceleração 10.000 mm/s²)</td>
+                                <td>250 mm/s (Aceleração 2.500 mm/s²)</td>
+                                <td>600 mm/s (Aceleração 20.000 mm/s²)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tipo de Extrusor</strong></td>
+                                <td>Direct Drive (Bico de Latão / Inox)</td>
+                                <td>Direct Drive (Bico de Latão)</td>
+                                <td>Direct Drive (Bico de Aço Temperado até 300°C)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nivelamento Automático</strong></td>
+                                <td>Sim (ABL com Z-Offset Ativo)</td>
+                                <td>Sim (LeviQ 2.0 com Z-Offset Inteligente)</td>
+                                <td>Sim (Nivelamento automático de 49 pontos)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sistema Multicolorido</strong></td>
+                                <td>Sim (Compatível com AMS Lite - até 4 cores)</td>
+                                <td>Não (Apenas mudança manual)</td>
+                                <td>Sim (ACE GEN2 integrado - até 19 cores)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Câmera / IA Integrada</strong></td>
+                                <td>Sim (Câmera monitoramento básica)</td>
+                                <td>Não</td>
+                                <td>Sim (Câmera e detecção ativa de falhas por IA)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fatiador Nativo</strong></td>
+                                <td>Bambu Studio / OrcaSlicer</td>
+                                <td>Cura / PrusaSlicer</td>
+                                <td>AnycubicSlicer / OrcaSlicer / Cura</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Destaque Principal</strong></td>
+                                <td>Facilidade total de uso e ecossistema integrado.</td>
+                                <td>Excelente custo-benefício para iniciantes.</td>
+                                <td>Alta velocidade, multicolor integrado e monitoramento por IA.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+        {{> trail-nav }}
+</main>
+
+    {{> footer }}
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
