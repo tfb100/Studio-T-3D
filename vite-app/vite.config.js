@@ -53,9 +53,17 @@ const pageData = {
     title: 'Calculadora',
     prevLink: '/procedimentos.html',
     prevTitle: 'Procedimentos',
+    nextLink: '/empreendedorismo.html',
+    nextTitle: 'Empreendedorismo',
+    step: 7
+  },
+  '/empreendedorismo.html': {
+    title: 'Empreendedorismo',
+    prevLink: '/calculadora.html',
+    prevTitle: 'Calculadora',
     nextLink: '/',
     nextTitle: 'Início',
-    step: 7
+    step: 8
   }
 };
 
@@ -79,6 +87,7 @@ export default defineConfig({
         materiais: resolve(__dirname, 'materiais.html'),
         softwares: resolve(__dirname, 'softwares.html'),
         calculadora: resolve(__dirname, 'calculadora.html'),
+        empreendedorismo: resolve(__dirname, 'empreendedorismo.html'),
       }
     }
   }
